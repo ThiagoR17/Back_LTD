@@ -1,7 +1,6 @@
-<?php
 
-include('conexao.php');
-?>
+
+<!----NÃO VOU USA MAIS ESSA ARQUIVO PARA O CADASTRO DE EVENTOS -->
 
 
 <!DOCTYPE html>
@@ -10,13 +9,13 @@ include('conexao.php');
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Modal</title>
+		<title>Cadastro de Eventos</title>
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 	</head>
 	<body>
 		<div class="container theme-showcase" role="main">
 			<div class="page-header">
-				<h1>Listar Cursos</h1>
+				<h1>Listar Eventos</h1>
 			</div>
 			<div class="pull-right">
 				<button type="button" class="btn btn-xs btn-success" data-toggle="modal" data-target="#myModalcad">Cadastrar</button>
@@ -27,7 +26,7 @@ include('conexao.php');
 					<div class="modal-content">
 						<div class="modal-header">
 							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-							<h4 class="modal-title text-center" id="myModalLabel">Cadastrar Curso</h4>
+							<h4 class="modal-title text-center" id="myModalLabel">Cadastrar Evento</h4>
 						</div>
 						<div class="modal-body">
 							<form method="POST" action="" enctype="multipart/form-data">
@@ -65,16 +64,16 @@ include('conexao.php');
 						<thead>
 							<tr>
 								<th>#</th>
-								<th>Nome do Curso</th>
+								<th>Nome do Evento</th>
 								<th>Ação</th>
 							</tr>
 						</thead>
 						<tbody>
-						<?php while($rows_cursos = mysqli_fetch_assoc($resultado_cursos)){ ?>
+							<?php while($rows_cursos = mysqli_fetch_assoc($resultado_cursos)){ ?>
 								<tr>
 									<td><?php echo $rows_cursos['id']; ?></td>
 									<td><?php echo $rows_cursos['nome']; ?></td>
-									<td>//
+									<td>
 										<button type="button" class="btn btn-xs btn-primary" data-toggle="modal" data-target="#myModal<?php echo $rows_cursos['id']; ?>">Visualizar</button>
 										
 										<button type="button" class="btn btn-xs btn-warning" data-toggle="modal" data-target="#exampleModal" data-whatever="<?php echo $rows_cursos['id']; ?>" data-whatevernome="<?php echo $rows_cursos['nome']; ?>"  data-whateverdetalhes="<?php echo $rows_cursos['detalhes']; ?>">Editar</button>
@@ -114,7 +113,7 @@ include('conexao.php');
 						<h4 class="modal-title" id="exampleModalLabel">Cursos</h4>
 					</div>
 					<div class="modal-body">
-						<form method="POST" action="" enctype="multipart/form-data">
+						<form method="POST" action="http://localhost/Aula/processa.php" enctype="multipart/form-data">
 							<div class="form-group">
 								<label for="recipient-name" class="control-label">Nome:</label>
 								<input name="nome" type="text" class="form-control" id="recipient-name">
